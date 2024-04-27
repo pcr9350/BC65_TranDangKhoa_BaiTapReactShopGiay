@@ -32,17 +32,20 @@ const HeaderHome = () => {
         <li className="nav-item">
           <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/form">Form Demo</NavLink>
         </li>
-        {/* <li className="nav-item dropdown">
+        <li className="nav-item">
+          <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/formik">Formik Demo</NavLink>
+        </li>
+        <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Redux demo
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">Action</a></li>
-            <li><a className="dropdown-item" href="#">Another action</a></li>
+            <li><NavLink className="dropdown-item" to="/number-state">Number state</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/chat-app">Chat App</NavLink></li>
             <li><hr className="dropdown-divider" /></li>
             <li><a className="dropdown-item" href="#">Something else here</a></li>
           </ul>
-        </li> */}
+        </li>
         {/* <li className="nav-item">
           <a className="nav-link disabled" aria-disabled="true">Disabled</a>
         </li> */}

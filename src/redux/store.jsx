@@ -15,7 +15,7 @@ export const store = configureStore({
             }
             return state;
         },
-        arrCommentState: (state=[{fullName:'Mr. Sang', content:'Hello cybersoft !'}],action)=>{
+        arrCommentState: (state=[{fullName:'Mr. Spike', content:'Hello cybersoft !'}],action)=>{
             if(action.type==='ADD_COMMENT'){
                 state.push(action.payload);
             };

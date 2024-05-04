@@ -35,6 +35,19 @@ const HeaderHome = () => {
         <li className="nav-item">
           <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/formik">Formik Demo</NavLink>
         </li>
+        <li className="nav-item">
+            <NavLink
+              style={({ isActive }) =>
+                isActive ? { border: "1px solid orange" } : {}
+              }
+              className={({ isActive }) =>
+                isActive ? "nav-link bg-white text-dark" : "nav-link"
+              }
+              to="/product-list"
+            >
+              Products
+            </NavLink>
+          </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Redux demo
@@ -42,15 +55,16 @@ const HeaderHome = () => {
           <ul className="dropdown-menu">
             <li><NavLink className="dropdown-item" to="/number-state">Number state</NavLink></li>
             <li><NavLink className="dropdown-item" to="/chat-app">Chat App</NavLink></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><a className="dropdown-item" href="#">Something else here</a></li>
+            <li><NavLink className="dropdown-item" to="/form-sinh-vien">Form Sinh Vien</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/table-list-sinh-vien">Table list sinh vien</NavLink></li>
           </ul>
         </li>
         {/* <li className="nav-item">
           <a className="nav-link disabled" aria-disabled="true">Disabled</a>
         </li> */}
       </ul>
-      <form className="d-flex" role="search">
+      <form className="d-flex my-2 my-lg-0">
+        <NavLink className='text-white mx-2' to='/cart-page'>(1) <i className='fa fa-cart-plus fs-4'></i></NavLink>
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>

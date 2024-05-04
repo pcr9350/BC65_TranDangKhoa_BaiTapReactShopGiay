@@ -1,4 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
+import {cartReducer} from './reducers/cartReducer';
+import sinhVienReducer from './reducers/sinhVienReducer';
 
 export const store = configureStore({
     reducer: {
@@ -20,8 +22,10 @@ export const store = configureStore({
                 state.push(action.payload);
             };
             return [...state] //imutable tánh bất biến của redux
-        }
+        },
         //redux trả về giá trị mới thì component mới render lại (so sánh nầy là shallow compare)
         //state2, state3...
+        cartReducer: cartReducer,
+        sinhVienReducer
     }
 })

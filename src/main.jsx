@@ -27,6 +27,12 @@ import CartPage from './pages/Carts/CartPage'
 import ProductList from './pages/Products/ProductList'
 import TableListSinhVien from './pages/QuanLySinhVien/TableListSinhVien'
 import FormSinhVien from './pages/QuanLySinhVien/FormSinhVien'
+import DemoMountingComponent from './pages/DemoUseEffect/DemoMountingComponent'
+import DemoUpdatingComponent from './pages/DemoUseEffect/DemoUpdatingComponent'
+import DemoUnmountComponent from './pages/DemoUseEffect/DemoUnmountComponent'
+import DemoUseCallback from './pages/Demo_UseCallback_UseMemo/DemoUseCallback'
+import DemoUseMemo from './pages/Demo_UseCallback_UseMemo/DemoUseMemo'
+import Detail_UseParam from './pages/Detail_UseParam'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -51,6 +57,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="product-list" element={<ProductList />} />
             <Route path="table-list-sinh-vien" element={<TableListSinhVien />} />
             <Route path="form-sinh-vien" element={<FormSinhVien />} />
+            <Route path="useEffect-mounting" element={<DemoMountingComponent />} />
+            <Route path="useEffect-updating" element={<DemoUpdatingComponent />} />
+            <Route path="useEffect-unmount" element={<DemoUnmountComponent />} />
+            <Route path="useCallBack" element={<DemoUseCallback />} />
+            <Route path="useMemo" element={<DemoUseMemo />} />
+
+            {/* use Param */}
+            <Route path='detail'>
+              <Route path=':idProduct' element={<Detail_UseParam />}></Route>
+            </Route>
           </Route>
           <Route path="user" element={<UserTemplate />}>
             <Route path="profile" element={<Profile />} />

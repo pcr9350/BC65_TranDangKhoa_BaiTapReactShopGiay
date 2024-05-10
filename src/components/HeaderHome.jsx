@@ -59,6 +59,26 @@ const HeaderHome = () => {
             <li><NavLink className="dropdown-item" to="/table-list-sinh-vien">Table list sinh vien</NavLink></li>
           </ul>
         </li>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Lifecycle - Hook
+          </a>
+          <ul className="dropdown-menu">
+            <li><NavLink className="dropdown-item" to="/useEffect-mounting">Mounting component</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/useEffect-updating">Updating component</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/useEffect-unmount">Unmount component</NavLink></li>
+          </ul>
+        </li>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hook Tối ưu render
+          </a>
+          <ul className="dropdown-menu">
+            <li><NavLink className="dropdown-item" to="/useCallBack">Use Callback</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/useMemo">Use Memo</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/detail/1">Use Param</NavLink></li>
+          </ul>
+        </li>
         {/* <li className="nav-item">
           <a className="nav-link disabled" aria-disabled="true">Disabled</a>
         </li> */}

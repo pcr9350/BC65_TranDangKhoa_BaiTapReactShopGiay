@@ -57,6 +57,7 @@ const HeaderHome = () => {
             <li><NavLink className="dropdown-item" to="/chat-app">Chat App</NavLink></li>
             <li><NavLink className="dropdown-item" to="/form-sinh-vien">Form Sinh Vien</NavLink></li>
             <li><NavLink className="dropdown-item" to="/table-list-sinh-vien">Table list sinh vien</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/bookingTicket">Đặt vé xem phim</NavLink></li>
           </ul>
         </li>
         <li className="nav-item dropdown">

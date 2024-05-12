@@ -33,6 +33,7 @@ import DemoUnmountComponent from './pages/DemoUseEffect/DemoUnmountComponent'
 import DemoUseCallback from './pages/Demo_UseCallback_UseMemo/DemoUseCallback'
 import DemoUseMemo from './pages/Demo_UseCallback_UseMemo/DemoUseMemo'
 import Detail_UseParam from './pages/Detail_UseParam'
+import BaiTapBookingTicket from './BaiTapBookingTicket/BaiTapBookingTicket'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -62,6 +63,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="useEffect-unmount" element={<DemoUnmountComponent />} />
             <Route path="useCallBack" element={<DemoUseCallback />} />
             <Route path="useMemo" element={<DemoUseMemo />} />
+            <Route path="bookingTicket" element={<BaiTapBookingTicket />} />
 
             {/* use Param */}
             <Route path='detail'>

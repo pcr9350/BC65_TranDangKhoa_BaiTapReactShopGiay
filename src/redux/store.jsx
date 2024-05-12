@@ -1,6 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {cartReducer} from './reducers/cartReducer';
 import sinhVienReducer from './reducers/sinhVienReducer';
+import datVeReducer from './reducers/datVeReducer';
 
 export const store = configureStore({
     reducer: {
@@ -26,6 +27,7 @@ export const store = configureStore({
         //redux trả về giá trị mới thì component mới render lại (so sánh nầy là shallow compare)
         //state2, state3...
         cartReducer: cartReducer,
-        sinhVienReducer
+        sinhVienReducer,
+        datVeReducer
     }
 })

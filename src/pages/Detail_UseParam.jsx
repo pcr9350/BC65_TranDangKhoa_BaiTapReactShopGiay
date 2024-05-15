@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { httpStore } from '../util/config';
 
 const Detail_UseParam = (props) => {
     const [productDetail, setProductDetail] = useState({});
@@ -17,7 +18,7 @@ const Detail_UseParam = (props) => {
     // }
     
     const getProductDetail = async ()=>{
-        const res = await axios.get(`https://shop.cyberlearn.vn/api/Product/getbyid?id=${params.idProduct}`);
+        const res = await httpStore.get(`https://shop.cyberlearn.vn/api/Product/getbyid?id=${params.idProduct}`);
         setProductDetail(res.data.content);
         // console.log(res.data.content)
     };

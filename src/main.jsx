@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import BaiTapGioHang from './BaiTapGioHang/BaiTapGioHang'
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
+import {BrowserRouter, Routes, Route, Navigate, unstable_HistoryRouter as HistoryRouter} from 'react-router-dom'
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 import About from './pages/About'
@@ -34,13 +34,21 @@ import DemoUseCallback from './pages/Demo_UseCallback_UseMemo/DemoUseCallback'
 import DemoUseMemo from './pages/Demo_UseCallback_UseMemo/DemoUseMemo'
 import Detail_UseParam from './pages/Detail_UseParam'
 import BaiTapBookingTicket from './BaiTapBookingTicket/BaiTapBookingTicket'
+import DemoUseHistory from './pages/Hook_Router/DemoUseHistory'
+import DemoUseSearchParam from './pages/Hook_Router/DemoUseSearchParam'
+import DemoUseRef from './pages/Demo_UseCallback_UseMemo/DemoUseRef'
+
+//Cấu hình biến để chuyển hướng trang
+import {createBrowserHistory} from 'history'
+// history tương tự navigate dùng để chuyển hướng trang ở một trang không phải component
+export const historyRouter = createBrowserHistory();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* <div>
       <BaiTapGioHang />
     </div> */}
-    <BrowserRouter>
+    <HistoryRouter history={historyRouter}>
       <Provider store={store}>
         <Routes>
           <Route path="" element={<HomeTemplate />}>
@@ -69,6 +77,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path='detail'>
               <Route path=':idProduct' element={<Detail_UseParam />}></Route>
             </Route>
+            <Route path='use-history' element={<DemoUseHistory />}></Route>
+            <Route path='use-search-param' element={<DemoUseSearchParam />}></Route>
+            <Route path='use-search-param' element={<DemoUseSearchParam />}></Route>
+            <Route path='use-ref' element={<DemoUseRef />}></Route>
           </Route>
           <Route path="user" element={<UserTemplate />}>
             <Route path="profile" element={<Profile />} />
@@ -79,6 +91,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="*" element={<Page404 />} />
         </Routes>
       </Provider>
-    </BrowserRouter>
+    </HistoryRouter>
   </React.StrictMode>
 );

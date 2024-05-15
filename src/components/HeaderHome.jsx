@@ -2,15 +2,15 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const HeaderHome = () => {
-  return (
+  return (   
 <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid bg-warning">
     <NavLink className="navbar-brand" to="/">React Hook</NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon" />
     </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+    <div className="collapse row navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0 col-10" style={{fontSize:'13px'}}>
         <li className="nav-item">
           <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} aria-current="page" to="/">Home</NavLink>
         </li>
@@ -78,13 +78,24 @@ const HeaderHome = () => {
             <li><NavLink className="dropdown-item" to="/useCallBack">Use Callback</NavLink></li>
             <li><NavLink className="dropdown-item" to="/useMemo">Use Memo</NavLink></li>
             <li><NavLink className="dropdown-item" to="/detail/1">Use Param</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/use-ref">UseRef</NavLink></li>
+          </ul>
+        </li>
+        <li className="nav-item dropdown">
+          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Hook Router
+          </a>
+          <ul className="dropdown-menu">
+            <li><NavLink className="dropdown-item" to="/use-history">Use History</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/use-search-param">UseSearchParam</NavLink></li>
+            
           </ul>
         </li>
         {/* <li className="nav-item">
           <a className="nav-link disabled" aria-disabled="true">Disabled</a>
         </li> */}
       </ul>
-      <form className="d-flex my-2 my-lg-0">
+      <form className="d-flex my-2 my-lg-0 col-2">
         <NavLink className='text-white mx-2' to='/cart-page'>(1) <i className='fa fa-cart-plus fs-4'></i></NavLink>
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
         <button className="btn btn-outline-success" type="submit">Search</button>
@@ -92,6 +103,7 @@ const HeaderHome = () => {
     </div>
   </div>
 </nav>
+
 
   )
 }

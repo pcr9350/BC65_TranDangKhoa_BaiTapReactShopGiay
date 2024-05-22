@@ -1,5 +1,5 @@
 const TOKEN_AUTHOR = 'accessToken'
-
+export const USER_LOGIN = 'userLogin'
 // Các hàm để thao tác với cookie và localstorage
 const getDataTextStorage = (storeName) =>{
     if (localStorage.getItem(storeName)){

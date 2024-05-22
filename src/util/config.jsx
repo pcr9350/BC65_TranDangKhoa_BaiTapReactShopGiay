@@ -8,7 +8,7 @@ import * as jwtDecode from 'jwt-decode';
 function isTokenExpired(token) {
     try {
       const decodedToken = jwtDecode.jwtDecode(token);
-      console.log(decodedToken)
+    //   console.log(decodedToken)
       const expirationTime = new Date(decodedToken.exp * 1000); // Convert to milliseconds
       const currentTime = new Date();
       return expirationTime < currentTime;
@@ -37,9 +37,10 @@ const httpStore = axios.create({
 
 // Cấu hình interceptor Gửi đi (mở netwwork để xem)
 httpStore.interceptors.request.use((req)=>{
+    const token = getDataTextStorage(TOKEN_AUTHOR)
     req.headers = {
         ...req.headers,
-        'Authorization': `Bearer ${getDataTextStorage(TOKEN_AUTHOR)}`
+        'Authorization': token
     }
     return req;
 }, err =>{

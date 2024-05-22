@@ -1,7 +1,23 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import useRedux from '../CustomHook/useRedux'
 
 const HeaderHome = () => {
+// cần lấy state login về
+const {state, dispatch} = useRedux();
+const {userLogin} = state.userReducer;
+
+const renderLoginLink = () => {
+  if (userLogin) {
+    // nếu có dữ liệu trên store thì là đăng nhập rồi
+    return <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/user/profile">Hello {userLogin.email}</NavLink>
+  }
+  // chưa có dữ liệu trên store thì là link login
+  return <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/login">Login</NavLink>
+
+}
+
+
   return (   
 <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid bg-warning">
@@ -15,7 +31,13 @@ const HeaderHome = () => {
           <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} aria-current="page" to="/">Home</NavLink>
         </li>
         <li className="nav-item">
+          <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/demo-antd">Demo Antd</NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/about">About</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/admin/users">Admin</NavLink>
         </li>
         <li className="nav-item">
           <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/contact">Contact</NavLink>
@@ -24,10 +46,10 @@ const HeaderHome = () => {
           <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/register">Register</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/login">Login</NavLink>
+          {renderLoginLink()}
         </li>
         <li className="nav-item">
-          <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/user">User</NavLink>
+          <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/user/profile">User</NavLink>
         </li>
         <li className="nav-item">
           <NavLink style={({isActive})=>isActive ? {borderRadius:'5px'}:{}} className={({isActive})=>isActive ? 'nav-link bg-white text-dark' : 'nav-link'} to="/form">Form Demo</NavLink>

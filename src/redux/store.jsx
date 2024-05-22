@@ -2,6 +2,7 @@ import {configureStore} from '@reduxjs/toolkit';
 import {cartReducer} from './reducers/cartReducer';
 import sinhVienReducer from './reducers/sinhVienReducer';
 import datVeReducer from './reducers/datVeReducer';
+import userReducer from './reducers/userReducer';
 
 export const store = configureStore({
     reducer: {
@@ -28,6 +29,7 @@ export const store = configureStore({
         //state2, state3...
         cartReducer: cartReducer,
         sinhVienReducer,
-        datVeReducer
+        datVeReducer,
+        userReducer
     }
 })

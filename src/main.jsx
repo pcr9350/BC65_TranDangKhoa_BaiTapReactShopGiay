@@ -40,6 +40,12 @@ import DemoUseRef from './pages/Demo_UseCallback_UseMemo/DemoUseRef'
 
 //Cấu hình biến để chuyển hướng trang
 import {createBrowserHistory} from 'history'
+import DemoAntd from './components/DemoAntd'
+import AdminTemplate from './templates/AdminTemplate'
+import UserList from './pages/AdminUsers/UserList'
+import DetailUser from './pages/AdminUsers/DetailUser'
+import CreateUser from './pages/AdminUsers/CreateUser'
+
 // history tương tự navigate dùng để chuyển hướng trang ở một trang không phải component
 export const historyRouter = createBrowserHistory();
 
@@ -77,11 +83,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path='detail'>
               <Route path=':idProduct' element={<Detail_UseParam />}></Route>
             </Route>
-            <Route path='use-history' element={<DemoUseHistory />}></Route>
-            <Route path='use-search-param' element={<DemoUseSearchParam />}></Route>
+            <Route path='use-history' element={<DemoUseHistory />}></Route>            
             <Route path='use-search-param' element={<DemoUseSearchParam />}></Route>
             <Route path='use-ref' element={<DemoUseRef />}></Route>
+            <Route path='demo-antd' element={<DemoAntd />}></Route>
+
           </Route>
+          {/* Phần user */}
           <Route path="user" element={<UserTemplate />}>
             <Route path="profile" element={<Profile />} />
             <Route path="history" element={<HistoryOrder />} />
@@ -89,6 +97,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="*" element={<Navigate to="/user/profile" />} />
           </Route>
           <Route path="*" element={<Page404 />} />
+
+          {/* Phần admin */}
+          <Route path='admin' element={<AdminTemplate />}>
+              <Route path='users' element={<UserList />}></Route>
+              <Route path='user-detail'>
+                  <Route path=':id' element={<DetailUser />}></Route>
+              </Route>
+              <Route path='user-create' element={<CreateUser />}></Route>
+          </Route>
         </Routes>
       </Provider>
     </HistoryRouter>

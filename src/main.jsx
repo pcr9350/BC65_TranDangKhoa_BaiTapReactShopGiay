@@ -45,17 +45,33 @@ import AdminTemplate from './templates/AdminTemplate'
 import UserList from './pages/AdminUsers/UserList'
 import DetailUser from './pages/AdminUsers/DetailUser'
 import CreateUser from './pages/AdminUsers/CreateUser'
+import ReactQueryUsers from './pages/AdminUsers/ReactQueryUsers';
+import ReactQueryCreateUser from './pages/AdminUsers/ReactQueryCreateUser';
+import ReactQueryUserPaging from './pages/AdminUsers/ReactQueryUserPaging';
+import Loading from './components/Loading';
+import useRedux from './CustomHook/useRedux';
+import MessageNotify from './components/MessageNotify';
 
+//Cài đặt react query
+import {QueryClientProvider,QueryClient} from '@tanstack/react-query'
+//Cài đặt react query devtool
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
+import ReactQueryUsersMockApi from './pages/AdminUsers/ReactQueryUsersMockApi'
+
+const queryClient = new QueryClient()
 // history tương tự navigate dùng để chuyển hướng trang ở một trang không phải component
 export const historyRouter = createBrowserHistory();
-
+// const {state} = useRedux();
 ReactDOM.createRoot(document.getElementById("root")).render(
+  
   <React.StrictMode>
     {/* <div>
       <BaiTapGioHang />
     </div> */}
     <HistoryRouter history={historyRouter}>
       <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+        
         <Routes>
           <Route path="" element={<HomeTemplate />}>
             <Route index element={<Home />} />
@@ -105,8 +121,17 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                   <Route path=':id' element={<DetailUser />}></Route>
               </Route>
               <Route path='user-create' element={<CreateUser />}></Route>
+              <Route path='react-query-users' element={<ReactQueryUsers />}></Route>
+            <Route path='react-query-user-paging' element={<ReactQueryUserPaging />}></Route>
+            <Route path='react-query-create-user' element={<ReactQueryCreateUser />}></Route>
+            <Route path='react-query-users-mockapi' element={<ReactQueryUsersMockApi />}></Route>
           </Route>
+
+          {/* {state.loadingReducer.isLoading && <Loading /> } 
+      <MessageNotify /> */}
         </Routes>
+        <ReactQueryDevtools initialIsOpen={false} position="bottom" />
+        </QueryClientProvider>
       </Provider>
     </HistoryRouter>
   </React.StrictMode>

@@ -3,6 +3,8 @@ import {cartReducer} from './reducers/cartReducer';
 import sinhVienReducer from './reducers/sinhVienReducer';
 import datVeReducer from './reducers/datVeReducer';
 import userReducer from './reducers/userReducer';
+import loadingReducer from './reducers/loadingReducer';
+import messageReducer from './reducers/messageReducer';
 
 export const store = configureStore({
     reducer: {
@@ -30,6 +32,8 @@ export const store = configureStore({
         cartReducer: cartReducer,
         sinhVienReducer,
         datVeReducer,
-        userReducer
+        userReducer,
+        loadingReducer,
+        messageReducer
     }
 })

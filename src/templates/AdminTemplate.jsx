@@ -53,6 +53,38 @@ const AdminTemplate = () => {
               },
               {
                 key: '3',
+                icon: <UserOutlined />,
+                label: 'RQ-User-List',
+                onClick:(event)=>{
+                  navigate('/admin/react-query-users')
+              }
+              },
+              {
+                key: '4',
+                icon: <UserAddOutlined />,
+                label: 'RQ-Create-User',
+                onClick:(event)=>{
+                  navigate('/admin/react-query-create-user')
+              }
+              },
+              {
+                key: '5',
+                icon: <UserAddOutlined />,
+                label: 'RQ-User-paging',
+                onClick:(event)=>{
+                  navigate('/admin/react-query-user-paging')
+              }
+              },
+              {
+                key: '6',
+                icon: <UserOutlined />,
+                label: 'RQ-User-List-Mockapi',
+                onClick:(event)=>{
+                  navigate('/admin/react-query-users-mockapi')
+              }
+              },
+              {
+                key: '7',
                 icon: <BackwardFilled />,
                 label: 'Về trang chủ',
                 onClick: (event) => {

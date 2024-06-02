@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {useFormik} from 'formik'
 import axios from 'axios'
 import useRedux from '../CustomHook/useRedux';
 import { loginAction, loginActionApi } from '../redux/reducers/userReducer';
+import { setSubmitModalFunctionAction } from '../redux/reducers/modalReducer';
 const Login = () => {
     //hook của react router dom giúp chuyển hướng trang sau một xử lý
     // const navigate = useNavigate();
@@ -47,6 +48,13 @@ const Login = () => {
 
         }
     });
+
+    useEffect(()=>{
+        //mounting component
+        const payload = userLoginForm.handleSubmit;
+        const action = setSubmitModalFunctionAction(payload);
+        dispatch(action);
+    },[])
   return (
     <div className='container'>
         <form className='w-50 mx-auto' onSubmit={userLoginForm.handleSubmit}>

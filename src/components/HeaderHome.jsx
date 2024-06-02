@@ -70,6 +70,19 @@ const renderLoginLink = () => {
               Products
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink
+              style={({ isActive }) =>
+                isActive ? { border: "1px solid orange" } : {}
+              }
+              className={({ isActive }) =>
+                isActive ? "nav-link bg-white text-dark" : "nav-link"
+              }
+              to="/demo-hoc"
+            >
+              HOC
+            </NavLink>
+          </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Redux demo

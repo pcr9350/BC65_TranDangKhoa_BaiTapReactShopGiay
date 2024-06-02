@@ -57,6 +57,11 @@ import {QueryClientProvider,QueryClient} from '@tanstack/react-query'
 //Cài đặt react query devtool
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 import ReactQueryUsersMockApi from './pages/AdminUsers/ReactQueryUsersMockApi'
+import DemoHOC from './HOC/DemoHOC'
+import ModalRedux from './HOC/ModalRedux'
+import HomePageDesktop from './pages/HomePage/HomePageDesktop'
+import ResponsiveItem from './HOC/ResponsiveItem'
+import HomePageMobile from './pages/HomePage/HomePageMobile'
 
 const queryClient = new QueryClient()
 // history tương tự navigate dùng để chuyển hướng trang ở một trang không phải component
@@ -74,7 +79,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         
         <Routes>
           <Route path="" element={<HomeTemplate />}>
-            <Route index element={<Home />} />
+            <Route index element={<ResponsiveItem component={<HomePageDesktop />} mobileComponent={<HomePageMobile />} />} />
+            <Route path="home" element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             <Route path="register" element={<Register />} />
@@ -92,6 +98,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route path="useEffect-updating" element={<DemoUpdatingComponent />} />
             <Route path="useEffect-unmount" element={<DemoUnmountComponent />} />
             <Route path="useCallBack" element={<DemoUseCallback />} />
+            <Route path="demo-hoc" element={<DemoHOC />} />
             <Route path="useMemo" element={<DemoUseMemo />} />
             <Route path="bookingTicket" element={<BaiTapBookingTicket />} />
 
@@ -130,6 +137,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           {/* {state.loadingReducer.isLoading && <Loading /> } 
       <MessageNotify /> */}
         </Routes>
+        <ModalRedux />
         <ReactQueryDevtools initialIsOpen={false} position="bottom" />
         </QueryClientProvider>
       </Provider>

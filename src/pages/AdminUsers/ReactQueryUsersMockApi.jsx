@@ -39,7 +39,7 @@ import { NavLink } from 'react-router-dom';
   };
 const ReactQueryUsersMockApi = () => {
     const {isLoading, isPending, data, error} = useQuery({
-        queryKey:['userListApi'],
+        queryKey:['userListApiProduct'],
         queryFn: userApi.getAllMockApi,
         staleTime: 3 * 60 * 1000, // 3 phút sau dữ liệu mới cũ
         cacheTime: 5 * 60 * 1000, // thời gian lưu dữ liệu trong cache

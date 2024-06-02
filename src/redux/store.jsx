@@ -5,6 +5,7 @@ import datVeReducer from './reducers/datVeReducer';
 import userReducer from './reducers/userReducer';
 import loadingReducer from './reducers/loadingReducer';
 import messageReducer from './reducers/messageReducer';
+import modalReducer from './reducers/modalReducer';
 
 export const store = configureStore({
     reducer: {
@@ -34,6 +35,7 @@ export const store = configureStore({
         datVeReducer,
         userReducer,
         loadingReducer,
-        messageReducer
+        messageReducer,
+        modalReducer,
     }
 })

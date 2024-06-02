@@ -1,7 +1,8 @@
 import { useFormik } from 'formik'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { addUserActionApi, addUserActionAsync } from '../../redux/reducers/userReducer';
 import { useDispatch } from 'react-redux';
+import { setSubmitModalFunctionAction } from '../../redux/reducers/modalReducer';
 
 
 const CreateUser = () => {
@@ -27,7 +28,12 @@ const CreateUser = () => {
     },
   });
 
-
+  useEffect(()=>{
+    //mounting component
+    const payload = frmRegister.handleSubmit;
+    const action = setSubmitModalFunctionAction(payload);
+    dispatch(action);
+},[])
   return (
     <form action="" className='container' onSubmit={frmRegister.handleSubmit}>
       <h3>Create User</h3>
